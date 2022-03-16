@@ -2,6 +2,9 @@ export default {
   name: 'post',
   title: 'Post',
   type: 'document',
+  initialValue: () => ({
+    publishedAt: new Date().toISOString(),
+  }),
   fields: [
     {
       name: 'title',
@@ -25,13 +28,14 @@ export default {
     },
     {
       name: 'description',
-      title: 'Descripción (Resumen)',
+      title: 'Descripción (Resumen) CAMPO OBLIGATORIO',
       description: 'haz una breve descripción de no más de dos líneas del artículo o utiliza las dos primeras líneas seguidas de 3 puntos',
       type: 'string',
     },
     {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Imagen de portada',
+      description: 'CAMPO OBLIGATORIO',
       type: 'image',
       options: {
         hotspot: true,
@@ -40,11 +44,12 @@ export default {
     {
       name: 'body1',
       title: 'Párrafo 1',
+      description: 'CAMPO OBLIGATORIO, no añadir imagenes aquí',
       type: 'blockContent',
     },
     {
       name: 'articleImage1',
-      title: 'Imagen 1',
+      title: 'Imagen 1 (Opcional)',
       type: 'image',
       options: {
         hotspot: true,
@@ -52,8 +57,17 @@ export default {
     },
     {
       name: 'body2',
-      title: 'Párafo 2',
+      title: 'Párrafo 2 (Opcional)',
+      description: 'no añadir imagenes aquí',
       type: 'blockContent',
+    },
+    {
+      name: 'articleImage2',
+      title: 'Imagen 2 (Opcional)',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'categories',
@@ -67,8 +81,8 @@ export default {
       type: 'datetime',
     },
     {
-      name: 'body',
-      title: 'Body',
+      name: 'body3',
+      title: 'Párrafo 3',
       type: 'blockContent',
     },
   ],
